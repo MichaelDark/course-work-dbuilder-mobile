@@ -48,6 +48,8 @@ class Texts {
   String get chooseCriteria =>
       locale == 'en' ? 'Choose Criteria' : 'Виберіть критерій';
   String get enterValue => locale == 'en' ? 'Enter Value' : 'Введіть значення';
+  String get registrationError =>
+      locale == 'en' ? 'Registration Error' : 'Помилка реєстрації';
 
   void changeLocale() {
     if (locale == 'en') {

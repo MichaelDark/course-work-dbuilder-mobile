@@ -25,13 +25,15 @@ class _NewValuePageState extends State<NewValuePage> {
       body: Center(
         child: SizedBox(
           width: 560,
-          child: Column(
-            children: <Widget>[
-              NumberCriterionDD(
-                () => Navigator.of(context).pop(),
-                widget.task.id,
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                NumberCriterionDD(
+                  () => Navigator.of(context).pop(),
+                  widget.task.id,
+                ),
+              ],
+            ),
           ),
         ),
       ),

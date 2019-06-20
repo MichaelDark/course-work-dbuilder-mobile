@@ -52,7 +52,15 @@ class _NewValueWidget extends StatefulWidget {
 
 class _NewValueWidgetState extends State<_NewValueWidget> {
   TextEditingController controller = TextEditingController();
+
+  List<NumberCriteria> criterion = [];
   NumberCriteria selectedCriteria;
+
+  @override
+  void initState() {
+    super.initState();
+    criterion = widget.criterion;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +92,7 @@ class _NewValueWidgetState extends State<_NewValueWidget> {
                 ),
                 child: DropdownButton(
                   value: selectedCriteria,
-                  items: widget.criterion.map<DropdownMenuItem>(
+                  items: criterion.map<DropdownMenuItem>(
                     (NumberCriteria criteria) {
                       return DropdownMenuItem(
                         child: Container(
@@ -106,46 +114,45 @@ class _NewValueWidgetState extends State<_NewValueWidget> {
             ),
           ],
         ),
-        if (selectedCriteria != null)
-          Column(
-            children: [
-              SizedBox(height: 12),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 2,
-                  horizontal: 8,
-                ),
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                  child: Text(
-                    Texts().enterValue,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                    ),
+        Column(
+          children: [
+            SizedBox(height: 12),
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: 2,
+                horizontal: 8,
+              ),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                child: Text(
+                  Texts().enterValue,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                        vertical: 4,
-                        horizontal: 16,
-                      ),
-                      child: TextField(
-                        controller: controller,
-                        onChanged: (newValue) {
-                          setState(() {});
-                        },
-                      ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 4,
+                      horizontal: 16,
+                    ),
+                    child: TextField(
+                      controller: controller,
+                      onChanged: (newValue) {
+                        setState(() {});
+                      },
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
+        ),
         if (double.tryParse(controller.text) != null)
           Column(
             children: [

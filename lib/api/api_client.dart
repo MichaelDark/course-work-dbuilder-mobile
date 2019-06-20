@@ -29,7 +29,7 @@ class ApiClient extends IApiClient
 
   UserEntity user;
 
-  String get hostname => 'http://localhost:8080';
+  String get hostname => 'http://10.0.2.2:8080';
 
   Future<Map<String, String>> getHeaders() async {
     Map<String, String> headers = {

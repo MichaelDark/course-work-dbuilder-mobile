@@ -19,13 +19,7 @@ class TopBar extends AppBar {
                       child: Center(
                         child: Padding(
                           padding: EdgeInsets.all(5),
-                          child: Text(
-                            'Back',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          child: Icon(Icons.arrow_back),
                         ),
                       ),
                     )
@@ -35,14 +29,8 @@ class TopBar extends AppBar {
               if (showLocaleChange)
                 Builder(
                   builder: (context) {
-                    return FlatButton(
-                      child: Text(
-                        Texts().nextLocale,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                    return IconButton(
+                      icon: Icon(Icons.language),
                       onPressed: () {
                         Texts().changeLocale();
                         state.setState(() {});
@@ -52,14 +40,8 @@ class TopBar extends AppBar {
                 ),
               if (ApiClient().token != null)
                 Builder(builder: (context) {
-                  return FlatButton(
-                    child: Text(
-                      Texts().logout,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  return IconButton(
+                    icon: Icon(Icons.exit_to_app),
                     onPressed: () {
                       ApiClient().token = null;
                       Navigator.of(context).pushAndRemoveUntil(

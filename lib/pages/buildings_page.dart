@@ -25,14 +25,8 @@ class _BuildingsPageState extends State<BuildingsPage> {
             width: 600,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    CompanyInfo(this),
-                    UserInfo(),
-                  ],
-                ),
+                CompanyInfo(this),
+                UserInfo(),
                 BuildingsColumn(),
               ],
             ),

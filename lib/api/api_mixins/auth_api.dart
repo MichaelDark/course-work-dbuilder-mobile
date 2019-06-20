@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dbuilder_mobile/models/domain/user_entity.dart';
 import 'package:dbuilder_mobile/models/requests/login_request.dart';
+import 'package:dbuilder_mobile/models/requests/register_request.dart';
 import 'package:dbuilder_mobile/models/response/login_response.dart';
 import 'package:http/http.dart' as http;
 
@@ -31,5 +32,20 @@ mixin AuthApi on IApiClient {
     await updateUser();
 
     return resp;
+  }
+
+  Future<LoginResponse> register(RegisterRequest request) async {
+    await http.post(
+      '$hostname/register',
+      body: json.encode(RegisterRequestSerializer().toMap(request)),
+      headers: await getHeaders(),
+    );
+
+    return await login(
+      LoginRequest(
+        username: request.username,
+        password: request.password,
+      ),
+    );
   }
 }

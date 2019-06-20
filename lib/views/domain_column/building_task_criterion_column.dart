@@ -85,8 +85,7 @@ class _BuildingTaskCriterionColumnState
                 0,
                 Container(
                   margin: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Column(
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.all(10),

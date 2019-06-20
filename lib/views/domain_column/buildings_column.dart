@@ -34,8 +34,7 @@ class _BuildingsColumnState extends State<BuildingsColumn> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          Column(
                             children: <Widget>[
                               Container(
                                 padding: EdgeInsets.all(10),
